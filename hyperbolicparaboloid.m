@@ -11,6 +11,6 @@ z = X.^2 / a^2 - Y.^2 / b^2;
 z = reshape(z, [], length(y));
 
 surf(z);
-axis off;
-colormap hot;
-%grid on;
+%axis off;
+%colormap hot;
+grid on;
