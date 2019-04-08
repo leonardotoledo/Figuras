@@ -2,7 +2,7 @@ clear
 clc
 
 %% Para o texto dos nós:
-afastamento = .075;
+afastamento = .05;
 
 %% Quantidade de pontos:
 N = 30;
@@ -39,11 +39,11 @@ mesh(Ksi, Eta, zeros(N), 'FaceColor', 'none', 'EdgeColor', 'k');
 
 %% Plotting shape function:
 axis equal;
-plotShape(Ksi, Eta, Node, N4, '1st', '4');
+plotShape(Ksi, Eta, Node, N1, '1st', '1');
 
 %% Plotting nodes and node texts:
 plot3(Node(:,1), Node(:,2), Node(:,3), 'ro', 'MarkerFaceColor', 'r');
-text(Node(1,1)-afastamento, Node(1,2)-afastamento, afastamento,'1', 'Color', 'Red', 'FontWeight', 'bold');
-text(Node(2,1)+afastamento, Node(2,2)-afastamento, afastamento,'2', 'Color', 'Red', 'FontWeight', 'bold');
-text(Node(3,1)+afastamento, Node(3,2)+afastamento, afastamento,'3', 'Color', 'Red', 'FontWeight', 'bold');
-text(Node(4,1)-afastamento, Node(4,2)+afastamento, afastamento,'4', 'Color', 'Red', 'FontWeight', 'bold');
+text(Node(1,1)-3*afastamento, Node(1,2)-3*afastamento, afastamento,'1', 'Color', 'Red', 'FontWeight', 'bold', 'FontSize', 15);
+text(Node(2,1)+afastamento, Node(2,2)-afastamento, afastamento,'2', 'Color', 'Red', 'FontWeight', 'bold', 'FontSize', 15);
+text(Node(3,1)+afastamento, Node(3,2)+afastamento, afastamento,'3', 'Color', 'Red', 'FontWeight', 'bold', 'FontSize', 15);
+text(Node(4,1)-afastamento, Node(4,2)+afastamento, afastamento,'4', 'Color', 'Red', 'FontWeight', 'bold', 'FontSize', 15);
