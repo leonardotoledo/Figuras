@@ -2,10 +2,10 @@ clear
 clc
 
 %% Para o texto dos nós:
-afastamento = .15;
+afastamento = .25;
 
 %% Quantidade de pontos:
-N = 30;
+N = 50;
 step = 2/(N-1);
 
 %% Local coordinates:
@@ -47,7 +47,7 @@ patch([-1 1 1 -1], [-1 -1 1 1], [0 0 0 0], 'FaceColor','[.1,.6,.9]');
 
 %% Plotting shape function:
 axis equal;
-plotShape(Ksi, Eta, Node, N11, '2nd','11');
+plotShape(Ksi, Eta, Node, N33, '2nd','33');
 
 %% Plotting nodes and node texts:
 plot3(pos(1:3:27), pos(2:3:27), pos(3:3:27), 'ro', 'MarkerFaceColor', 'r');
