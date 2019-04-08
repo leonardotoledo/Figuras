@@ -2,15 +2,16 @@ clear
 clc
 
 %% Para o texto dos nós:
-afastamento = .15;
+afastamento = .075;
 
 %% Quantidade de pontos:
 N = 30;
 step = 2/(N-1);
 
 %% Local coordinates:
-Ksi = -1:step:1;
-Eta = -1:step:1;
+X = -1:step:1;
+Y = -1:step:1;
+[Ksi, Eta] = meshgrid(X,Y);
 
 %% Shape functions:
 N1 = @(Ksi,Eta) .25 .* (1-Ksi) .* (1-Eta);
@@ -25,11 +26,16 @@ Node(3,:) = [1 1 0];
 Node(4,:) = [-1 1 0];
 Node(5,:) = Node(1,:); % Usado apenas para fechar o quadrado.
 
+%% Figure properties 
 figure
-hold on;
+
+hold on; % Keep old plots
+view(3); % Standard 3d view
+set(gcf, 'Position', get(0, 'Screensize')); % Full screen
+% colormap hot;
 
 %% Plotting element:
-patch(Node(:,1), Node(:,2), Node(:,3), 'FaceColor','[.1,.6,.9]');
+mesh(Ksi, Eta, zeros(N), 'FaceColor', 'none', 'EdgeColor', 'k');
 
 %% Plotting shape function:
 axis equal;

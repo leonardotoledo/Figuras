@@ -1,12 +1,7 @@
 function plotShape(Ksi, Eta, Node, N, orderLabel, nodeLabel)
 
-for i = 1:length(Ksi)
-    for j = 1:length(Eta)
-        K = Ksi(i);
-        E = Eta(j);
-        plot3(K, E, N(K,E), 'ko', 'MarkerFaceColor','[.25,.25,.25]');
-    end
-end
+f = surf(Ksi,Eta,N(Ksi,Eta));
+f.EdgeColor = 'none';
 
 if orderLabel == '1st'
     switch nodeLabel

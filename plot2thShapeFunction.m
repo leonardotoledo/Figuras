@@ -2,15 +2,16 @@ clear
 clc
 
 %% Para o texto dos nós:
-afastamento = .25;
+afastamento = .075;
 
 %% Quantidade de pontos:
 N = 50;
 step = 2/(N-1);
 
 %% Local coordinates:
-Ksi = -1:step:1;
-Eta = -1:step:1;
+X = -1:step:1;
+Y = -1:step:1;
+[Ksi,Eta] = meshgrid(X,Y);
 
 % I - column number.
 % J - row number.
@@ -39,15 +40,20 @@ N33 = @(Ksi,Eta) .25 .* Ksi .* Eta .* (Ksi+1) .* (Eta+1);
 
 pos = [Node(:).pos];
 
+%% Figure properties 
 figure
-hold on;
+
+hold on; % Keep old plots
+view(3); % Standard 3d view
+set(gcf, 'Position', get(0, 'Screensize')); % Full screen
+% colormap hot;
 
 %% Plotting element:
-patch([-1 1 1 -1], [-1 -1 1 1], [0 0 0 0], 'FaceColor','[.1,.6,.9]');
+mesh(Ksi, Eta, zeros(N), 'FaceColor', 'none', 'EdgeColor', 'k');
 
 %% Plotting shape function:
 axis equal;
-plotShape(Ksi, Eta, Node, N33, '2nd','33');
+plotShape(Ksi, Eta, Node, N11, '2nd','11');
 
 %% Plotting nodes and node texts:
 plot3(pos(1:3:27), pos(2:3:27), pos(3:3:27), 'ro', 'MarkerFaceColor', 'r');
