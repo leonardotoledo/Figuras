@@ -1,5 +1,5 @@
 %% Para o texto dos nós:
-afastamento = .15;
+afastamento = .2;
 
 %% Quantidade de pontos:
 N = 30;
@@ -22,12 +22,14 @@ Node(3,:) = [1 1 0];
 Node(4,:) = [-1 1 0];
 Node(5,:) = Node(1,:); % Usado apenas para fechar o quadrado.
 
+figure
 hold on;
 
 %% Plotting element:
 patch(Node(:,1), Node(:,2), Node(:,3), 'FaceColor','[.1,.6,.9]');
 
 %% Plotting shape function:
+axis equal;
 plotShape(Ksi, Eta, Node, N4, '4');
 
 %% Plotting nodes and node texts:
