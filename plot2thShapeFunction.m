@@ -46,14 +46,14 @@ figure
 hold on; % Keep old plots
 view(3); % Standard 3d view
 set(gcf, 'Position', get(0, 'Screensize')); % Full screen
-% colormap hot;
+set(gca,'xtick',[-1 0 1], 'ytick', [-1 0 1], 'ztick', [-.12485 0 1]); % Removing excessive number from axis
 
 %% Plotting element:
 mesh(Ksi, Eta, zeros(N), 'FaceColor', 'none', 'EdgeColor', 'k');
 
 %% Plotting shape function:
 axis equal;
-plotShape(Ksi, Eta, Node, N11, '2nd','11');
+plotShape(Ksi, Eta, Node, N33, '2nd','33');
 
 %% Plotting nodes and node texts:
 plot3(pos(1:3:27), pos(2:3:27), pos(3:3:27), 'ro', 'MarkerFaceColor', 'r');
